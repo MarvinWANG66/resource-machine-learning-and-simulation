@@ -160,8 +160,8 @@ def main():
         return root_finding_result.x
     
     theta_evaluation_point = np.array([1.0, -2.0, 1.0, 1.2])
-    print(obtain_root(theta_evaluation_point))
-    print(np.linalg.norm(residual(obtain_root(theta_evaluation_point), theta_evaluation_point)))
+    print(f"root of x:{obtain_root(theta_evaluation_point)}")
+    print(f"L2 norm of residual value:{np.linalg.norm(residual(obtain_root(theta_evaluation_point), theta_evaluation_point))}")
 
     def loss_functional(x):
         return 0.5 * np.linalg.norm(x)**2
@@ -169,7 +169,7 @@ def main():
     def del_J__del_x(x):
         return x
     
-    print(loss_functional(obtain_root(theta_evaluation_point)))
+    print(f"Loss value: {loss_functional(obtain_root(theta_evaluation_point))}")
 
     ### Finite Differences
     time_finite_differences = time.time_ns()
